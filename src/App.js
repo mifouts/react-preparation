@@ -11,7 +11,6 @@ function App() {
           <Route path=":id" element={<Posts />}></Route>
         </Routes>
       </div>
-      ;
     </Router>
   );
 }
