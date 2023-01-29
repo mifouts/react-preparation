@@ -25,12 +25,12 @@ export default function Posts() {
           <button>Enter</button>
         </div>
       </div>
-      {posts.map((post) => {
+      {posts.map((post) => (
         <div className="post">
           <div className="post__title">{post.title}</div>
           <p className="post__body">{post.body}</p>
-        </div>;
-      })}
+        </div>
+      ))}
       <div className="post">
         <div className="post__title">
           <div className="post__title--skeleton"></div>
