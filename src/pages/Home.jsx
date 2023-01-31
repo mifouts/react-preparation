@@ -3,9 +3,9 @@ import axios from "axios";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
-  async function fetchUsers(user) {
+  async function fetchUsers() {
     const { data } = await axios.get(
-      `https://jsonplaceholder.typicode.com/${user}`
+      "https://jsonplaceholder.typicode.com/users"
     );
     setUsers(data);
   }
