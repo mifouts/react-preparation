@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Home() {
+  const [user, setUser] = useState([]);
+  async function fetchUsers(users) {
+    const { data } = await axios.get(
+      `https://jsonplaceholder.typicode.com/${users}`
+    );
+    setUser(data);
+  }
+
+  useEffect(() => fetchUsers(), []);
+
   return (
     <div className="container">
       <div className="row">
