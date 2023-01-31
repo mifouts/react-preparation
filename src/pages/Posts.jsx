@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Posts() {
+  let navigate = useNavigate();
   const { id } = useParams();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -26,9 +27,7 @@ export default function Posts() {
   return (
     <>
       <div className="post__search">
-        <Link to="/">
-          <button>← Back</button>
-        </Link>
+        <button onClick={navigate("/")}>← Back</button>
         <div className="post__search--container">
           <label className="post__search--label">Search by Id</label>
           <input
