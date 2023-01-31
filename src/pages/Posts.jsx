@@ -6,6 +6,7 @@ export default function Posts() {
   const { id } = useParams();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchId, setSearchId] = useState(id);
 
   function onSearch() {
     console.log("onSearch");
@@ -27,7 +28,11 @@ export default function Posts() {
         <button>← Back</button>
         <div className="post__search--container">
           <label className="post__search--label">Search by Id</label>
-          <input type="number" />
+          <input
+            type="number"
+            value={searchId}
+            onChange={(event) => setSearchId(event.target.value)}
+          />
           <button onClick={() => onSearch()}>Enter</button>
         </div>
       </div>
