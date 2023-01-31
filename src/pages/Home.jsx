@@ -22,7 +22,7 @@ const Home = () => {
         <div className="user-list">
           {users.map((user) => (
             <div className="user" key={user.id}>
-              <div className="user-card" onClick={navigate(`${user.id}`)}>
+              <div className="user-card" onClick={navigate(`/${user.id}`)}>
                 <div className="user-card__container">
                   <h3>{user.name}</h3>
                   <p>
