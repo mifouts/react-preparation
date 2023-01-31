@@ -2,22 +2,24 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Home() {
-  const [user, setUser] = useState([]);
+  const [users, setUsers] = useState([]);
   async function fetchUsers(user) {
     const { data } = await axios.get(
       `https://jsonplaceholder.typicode.com/${user}`
     );
-    setUser(data);
+    setUsers(data);
   }
 
-  useEffect(() => fetchUsers(), []);
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   return (
     <>
-      {user.map((user) => (
-        <div className="container">
-          <div className="row">
-            <div className="user-list">
+      <div className="container">
+        <div className="row">
+          <div className="user-list">
+            {users.map((user) => {
               <div className="user">
                 <div className="user-card">
                   <div className="user-card__container">
@@ -34,11 +36,11 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
+              </div>;
+            })}
           </div>
         </div>
-      ))}
+      </div>
     </>
   );
 }
