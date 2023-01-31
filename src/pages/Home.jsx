@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function Home() {
+const Home = () => {
   const [users, setUsers] = useState([]);
   async function fetchUsers(user) {
     const { data } = await axios.get(
@@ -19,8 +19,8 @@ export default function Home() {
       <div className="container">
         <div className="row">
           <div className="user-list">
-            {users.map((user) => {
-              <div className="user">
+            {users.map((user) => (
+              <div className="user" key={user.id}>
                 <div className="user-card">
                   <div className="user-card__container">
                     <h3>{user.name}</h3>
@@ -36,11 +36,13 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-              </div>;
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </>
   );
-}
+};
+
+export default Home;
