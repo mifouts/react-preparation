@@ -33,7 +33,11 @@ export default function Posts() {
             type="number"
             value={searchId}
             onChange={(event) => setSearchId(event.target.value)}
-            onKeyPress={(event) => console.log(event.key)}
+            onKeyPress={(event) => {
+              if (event.key === "Enter") {
+                onSearch();
+              }
+            }}
           />
           <button onClick={() => onSearch()}>Enter</button>
         </div>
